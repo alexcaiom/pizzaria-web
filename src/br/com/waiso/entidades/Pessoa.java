@@ -51,6 +51,15 @@ public class Pessoa implements Serializable {
 	@Column(name="perfil")
 	private Perfil perfil;
 	
+	@Column(name="nome")
+	private String nome;
+	
+	@Column(name="sobrenome")
+	private String sobrenome;
+	
+	@Column(name="identificacao")
+	private String identificacao;
+	
 	@OneToMany(fetch=FetchType.LAZY, cascade=CascadeType.REMOVE, mappedBy="id")
 	@Fetch(org.hibernate.annotations.FetchMode.SELECT)
 	private Collection<Endereco> enderecos = new ArrayList<Endereco>();
@@ -135,5 +144,29 @@ public class Pessoa implements Serializable {
 
 	public void setPedidos(Collection<Pedido> pedidos) {
 		this.pedidos = pedidos;
+	}
+
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	public String getSobrenome() {
+		return sobrenome;
+	}
+
+	public void setSobrenome(String sobrenome) {
+		this.sobrenome = sobrenome;
+	}
+
+	public String getIdentificacao() {
+		return identificacao;
+	}
+
+	public void setIdentificacao(String identificacao) {
+		this.identificacao = identificacao;
 	}
 }

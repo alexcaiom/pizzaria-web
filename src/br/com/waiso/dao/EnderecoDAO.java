@@ -1,5 +1,13 @@
 package br.com.waiso.dao;
 
-public class EnderecoDAO {
+import br.com.waiso.entidades.Endereco;
+
+public class EnderecoDAO extends GenericDAO<Endereco> {
+
+	private static final long serialVersionUID = 1L;
+
+	public EnderecoDAO() {
+		super(Endereco.class);
+	}
 
 }
