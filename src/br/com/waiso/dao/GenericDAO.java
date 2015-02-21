@@ -117,8 +117,8 @@ abstract class GenericDAO<T> extends Classe implements Serializable {
 	// em.getCriteriaBuilder().createQuery()<T> method
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public List<T> listar() {
-		beginTransaction();
-		CriteriaQuery cq = em.getCriteriaBuilder().createQuery();
+//		beginTransaction();
+		CriteriaQuery cq = getEm().getCriteriaBuilder().createQuery();
 		cq.select(cq.from(entityClass));
 		List resultList = em.createQuery(cq).getResultList();
 		return resultList;

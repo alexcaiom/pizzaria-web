@@ -7,8 +7,12 @@ public class PedidoBO {
 	
 	private PedidoDAO pedidoDAO;
 	
-	public void inserirPedido(Pedido pedido) {
-		getPedidoDAO().inserir(pedido);
+	public Pedido inserirPedido(Pedido pedido) {
+		return getPedidoDAO().inserir(pedido);
+	}
+	
+	public void atualizarPedido(Pedido pedido) {
+		getPedidoDAO().atualizar(pedido);
 	}
 	
 	public PedidoDAO getPedidoDAO() {
@@ -18,4 +22,5 @@ public class PedidoBO {
 	public void setPedidoDAO(PedidoDAO pedidoDAO) {
 		this.pedidoDAO = pedidoDAO;
 	}
+
 }

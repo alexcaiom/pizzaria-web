@@ -12,10 +12,13 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 
 import br.com.waiso.entidades.enums.TipoPedido;
 
@@ -45,7 +48,17 @@ public class Pedido implements Serializable {
 	
 	@OneToMany(fetch=FetchType.EAGER, mappedBy="id")
 	@Fetch(org.hibernate.annotations.FetchMode.SELECT)
-	private Collection<Produto> produtos = new ArrayList<Produto>();
+	private Collection<Produto> itens = new ArrayList<Produto>();
+	
+	@ManyToOne(fetch=FetchType.LAZY)
+	@Fetch(FetchMode.SELECT)
+	@JoinColumn(name="id_pessoa_fisica")
+	private Pessoa cliente;
+
+	@ManyToOne(fetch=FetchType.LAZY)
+	@Fetch(FetchMode.SELECT)
+	@JoinColumn(name="id_pessoa_juridica")
+	private Pessoa fornecedor;
 	
 	public Long getId() {
 		return id;
@@ -87,11 +100,29 @@ public class Pedido implements Serializable {
 		this.dataPedido = dataPedido;
 	}
 
-	public Collection<Produto> getProdutos() {
-		return produtos;
+	public Collection<Produto> getItens() {
+		return itens;
 	}
 
-	public void setProdutos(Collection<Produto> produtos) {
-		this.produtos = produtos;
+	public void setItens(Collection<Produto> itens) {
+		this.itens = itens;
 	}
+
+	public Pessoa getCliente() {
+		return cliente;
+	}
+
+	public void setCliente(Pessoa cliente) {
+		this.cliente = cliente;
+	}
+
+	public Pessoa getFornecedor() {
+		return fornecedor;
+	}
+
+	public void setFornecedor(Pessoa fornecedor) {
+		this.fornecedor = fornecedor;
+	}
+
+	
 }

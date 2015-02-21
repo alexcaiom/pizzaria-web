@@ -7,6 +7,7 @@ import java.util.Collection;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -47,7 +48,7 @@ public class Pessoa implements Serializable {
 	@Column(name="celular")
 	private String celular;
 
-	@Enumerated
+	@Enumerated(EnumType.STRING)
 	@Column(name="perfil")
 	private Perfil perfil;
 	
@@ -58,14 +59,15 @@ public class Pessoa implements Serializable {
 	private String sobrenome;
 	
 	@Column(name="identificacao")
-	private String identificacao;
+	private Long identificacao;
 	
 	@OneToMany(fetch=FetchType.LAZY, cascade=CascadeType.REMOVE, mappedBy="id")
 	@Fetch(org.hibernate.annotations.FetchMode.SELECT)
 	private Collection<Endereco> enderecos = new ArrayList<Endereco>();
 	
-	@OneToMany(fetch=FetchType.LAZY, cascade=CascadeType.REMOVE, mappedBy="id")
+	@OneToMany(fetch=FetchType.LAZY, cascade=CascadeType.MERGE) /*, mappedBy="id"*/
 	@Fetch(org.hibernate.annotations.FetchMode.SELECT)
+	@JoinTable(name="tbl_pessoa_produto", joinColumns={@JoinColumn(name="id_pessoa")}, inverseJoinColumns={@JoinColumn(name="id_produto")})
 	private Collection<Produto> produtos = new ArrayList<Produto>();
 	
 	@ManyToMany(fetch = FetchType.LAZY, cascade=CascadeType.ALL)
@@ -162,11 +164,11 @@ public class Pessoa implements Serializable {
 		this.sobrenome = sobrenome;
 	}
 
-	public String getIdentificacao() {
+	public Long getIdentificacao() {
 		return identificacao;
 	}
 
-	public void setIdentificacao(String identificacao) {
+	public void setIdentificacao(Long identificacao) {
 		this.identificacao = identificacao;
 	}
 }
