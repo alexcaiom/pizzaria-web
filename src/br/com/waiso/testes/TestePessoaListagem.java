@@ -25,7 +25,7 @@ public class TestePessoaListagem extends Classe {
 				System.out.println(pessoa.getNome());
 				if (pessoa.getPedidos() != null) {
 					for (Pedido p : pessoa.getPedidos()) {
-						System.out.println(p.getDataPedido() + " - " + p.getDescricao());
+						System.out.println(p.getData() + " - " + p.getDescricao());
 					}
 				}
 			}

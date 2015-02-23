@@ -18,6 +18,7 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.xml.bind.annotation.XmlRootElement;
 
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
@@ -25,8 +26,9 @@ import org.hibernate.annotations.IndexColumn;
 
 import br.com.waiso.entidades.enums.Perfil;
 
-@Entity
-@Table(name="tbl_pessoa")
+//@Entity
+//@Table(name="tbl_pessoa")
+//@XmlRootElement
 public class Pessoa implements Serializable {
 	
 	private static final long serialVersionUID = -3536629699833055554L;
@@ -65,7 +67,7 @@ public class Pessoa implements Serializable {
 	@Fetch(org.hibernate.annotations.FetchMode.SELECT)
 	private Collection<Endereco> enderecos = new ArrayList<Endereco>();
 	
-	@OneToMany(fetch=FetchType.LAZY, cascade=CascadeType.MERGE) /*, mappedBy="id"*/
+	@OneToMany(fetch=FetchType.LAZY, cascade=CascadeType.MERGE, mappedBy="id")
 	@Fetch(org.hibernate.annotations.FetchMode.SELECT)
 	@JoinTable(name="tbl_pessoa_produto", joinColumns={@JoinColumn(name="id_pessoa")}, inverseJoinColumns={@JoinColumn(name="id_produto")})
 	private Collection<Produto> produtos = new ArrayList<Produto>();

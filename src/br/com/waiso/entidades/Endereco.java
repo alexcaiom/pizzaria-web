@@ -10,9 +10,11 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.xml.bind.annotation.XmlRootElement;
 
-@Entity
-@Table(name="tbl_endereco")
+//@Entity
+//@Table(name="tbl_endereco")
+//@XmlRootElement
 public class Endereco implements Serializable {
 	private static final long serialVersionUID = -321500527926377810L;
 

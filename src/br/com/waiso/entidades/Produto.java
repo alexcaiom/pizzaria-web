@@ -4,31 +4,15 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 
 import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.Table;
 
-@Entity
-@Table(name="tbl_produto")
 public class Produto implements Serializable {
 	private static final long serialVersionUID = -1529317802593072566L;
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="id_produto", unique=true)
 	private Long id;
-	
-	@Column(name="categoria")
 	private String categoria;
-	
-	@Column(name="sub_categoria")
 	private String subCategoria;
-	
-	@Column(name="nome")
 	private String nome;
 	
 	@Column(name="descricao")
