@@ -8,9 +8,9 @@
 
 		<properties>
 			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
-			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://alexcaiom.com.br:3306/alexcaio_pizzaria" />
-			<property name="javax.persistence.jdbc.user" value="alexcaio_fabiano" />
-			<property name="javax.persistence.jdbc.password" value="f@b1@n0" />
+			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://[db_host]:3306/[bd]" />
+			<property name="javax.persistence.jdbc.user" value="[usuario]" />
+			<property name="javax.persistence.jdbc.password" value="[senha]" />
 			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect" />
 			<!-- <property name="hibernate.hbm2ddl.auto" value="update" /> -->
 			<property name="hibernate.show_sql" value="true" />

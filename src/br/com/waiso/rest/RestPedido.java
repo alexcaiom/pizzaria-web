@@ -22,18 +22,18 @@ public class RestPedido {
 //	@POST
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	public Object cadastrar(@FormParam("descricao") String descricao,
-							@FormParam("tipo") String tipo,
-//							@FormParam("data") String data,
-							@FormParam("latitude") Double latitude,
-							@FormParam("longitude") Double longitude,
-							@FormParam("numero") Integer numero,
-							/*@FormParam("complemento") String complemento,*/
-//							@FormParam("nome") String nome,
-							/*@FormParam("identificacao") Long identificacao,*/
-//							@FormParam("telefone") String telefone,
-//							@FormParam("celular") String celular,
-							@FormParam("imei") String imei){
+	public Object cadastrar(@PathParam("descricao") String descricao,
+							@PathParam("tipo") String tipo,
+//							@PathParam("data") String data,
+							@PathParam("latitude") Double latitude,
+							@PathParam("longitude") Double longitude,
+							@PathParam("numero") Integer numero,
+							/*@PathParam("complemento") String complemento,*/
+//							@PathParam("nome") String nome,
+							/*@PathParam("identificacao") Long identificacao,*/
+//							@PathParam("telefone") String telefone,
+//							@PathParam("celular") String celular,
+							@PathParam("imei") String imei){
 		Pedido pedido = new Pedido();
 		pedido.setDescricao(descricao);
 		pedido.setTipoPedido(TipoPedido.ENTREGAR);
