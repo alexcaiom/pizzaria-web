@@ -14,7 +14,7 @@ import br.com.waiso.entidades.enums.StatusPedido;
 import br.com.waiso.entidades.enums.TipoPedido;
 import br.com.waiso.servico.ServicoPedido;
 @Path("pedido/")
-public class RestPedidoPesquisas {
+public class RestPedido {
 	
 //	@Path("pedido/cadastrar/{descricao}/{tipo}/{data}/{latitude}/{numero}/{complemento}/{nome}/{identificacao}/{telefone}/{celular}/{imei}")
 	@Path("cadastrar/{descricao}/{tipo}/{latitude}/{longitude}/{numero}/{imei}")
